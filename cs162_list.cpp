@@ -94,16 +94,18 @@ int remove_first_two(node * & head)
 //the 'destination' is the node that will be new, a copy of the given source
 void copy_all(node * & destination_head, node * source_head)
 {
-    if ( destination_head==NULL || source_head == NULL)
-        return;
+    // if ( destination_head==NULL || source_head == NULL)
+    //     return;
 
-    node * nextStepperBoiThing = new node;
-    nextStepperBoiThing->data = source_head->data;
-    destination_head->next = nextStepperBoiThing;
+    //node * nextStepperBoiThing = new node;
 
-    node * evenNexter = new node;
-    nextStepperBoiThing->next = evenNexter;
-    copy_all(evenNexter, source_head->next);
+    destination_head->data = source_head->data;
+    if (source_head->next !=NULL)
+    {
+        node * nextStepperBoiThing = new node;
+        destination_head->next = nextStepperBoiThing;
+            copy_all(nextStepperBoiThing, source_head->next);
+    }
 
     return;
 }
